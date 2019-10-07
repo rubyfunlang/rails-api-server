@@ -8,7 +8,7 @@ module Security
     private
 
     def check_client_token
-      unless params[:permit_token] == 'th1$iSa$upEr$equr3T0k3n'
+      unless params[:data][:permit_token] == 'th1$iSa$upEr$equr3T0k3n'
         render json: { data: "You're not permitted to this service!" }
       end
     end
