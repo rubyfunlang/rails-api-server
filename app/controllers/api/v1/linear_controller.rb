@@ -1,16 +1,10 @@
 module Api
   module V1
     class LinearController < ApplicationController
+      include Security
+
       def linear
-        render json:
-        {
-          status: 'SUCCESS',
-          message: 'calculated',
-          data:
-          {
-            EquationManager::Linear.calculate(params[:data])
-          }
-        }
+        render json: { data: EquationManager::Linear.calculate(params[:data]) }
       end
     end
   end
